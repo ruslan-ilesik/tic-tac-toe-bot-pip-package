@@ -1,9 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(name='tic_tac_toe_bot',
-      version='0.1',
+      version='2.4',
       description='simple bot for tic tac toe',
-      long_description='tic tac toe bot with hard level settings ',
       classifiers=[
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: MIT License',

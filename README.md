@@ -11,7 +11,7 @@ bot = tic_tac_toe.Bot(map,level=100) #
 print(map.is_payer_turn()) #>> True
 print(map.get_map()) #>> [['', '', ''], ['', '', ''], ['', '', '']]
 print(map.make_move(position = [0,0],skip_check=False,place_anyway=False)) #position = [0-2,0-2],skip_check - if True, skips check for turn, place_anyway - skip check if place free
-#>> False # it prints if someone won after that (could be "bot","player","draw" (when any places free and anyone win),False)
+#>> False # it prints if someone won after that (could be "bot","player","draw" (when no places free and anyone win),False)
 print(map.get_map())#>>[['x', '', ''], ['', '', ''], ['', '', '']]
 print(map.is_payer_turn())# >> False
 print(bot.make_move())# >> False

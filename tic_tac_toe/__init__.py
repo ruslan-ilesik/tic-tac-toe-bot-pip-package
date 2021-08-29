@@ -20,7 +20,7 @@ class Field():
         is_all = True
         for i in self.combinations:
             for b in i:
-                if self.map[b[0]][b[1]] != self.clear_place_sign:
+                if self.map[b[0]][b[1]] == self.clear_place_sign:
                     is_all = False
         if is_all:
             return 'draw'
@@ -38,6 +38,14 @@ class Field():
         return self.check_win()
 
     def check_win(self):
+        is_all = True
+        for i in self.combinations:
+            for b in i:
+                if self.map[b[0]][b[1]] == self.clear_place_sign:
+                    is_all = False
+        if is_all:
+            return 'draw'
+            
         for i in self.combinations:
             if self.map[i[0][0]][i[0][1]] != self.clear_place_sign and self.map[i[0][0]][i[0][1]] == self.map[i[1][0]][i[1][1]] == self.map[i[2][0]][i[2][1]]:
                 return ('player' if self.map[i[0][0]][i[0][1]] == self.player_sign else 'bot')
@@ -72,6 +80,7 @@ class Bot():
             # finding place where we win
             for i in self.field.combinations:
                 counter = 0
+                pos = []
                 place = True
                 for b in i:
                     if self.field.map[b[0]][b[1]] == self.field.player_sign:
@@ -79,14 +88,16 @@ class Bot():
                         break
                     elif self.field.map[b[0]][b[1]] == self.field.clear_place_sign:
                         counter +=1
+                        pos = b
                     if counter > 1:
                         place = False
                 if place:
-                    return set_new(b)
+                    return set_new(pos)
 
             #find places where we will lose if dont place
             for i in self.field.combinations:
                 counter = 0
+                pos = []
                 place = True
                 for b in i:
                     if self.field.map[b[0]][b[1]] == self.field.bot_sign:
@@ -94,10 +105,11 @@ class Bot():
                         break
                     elif self.field.map[b[0]][b[1]] == self.field.clear_place_sign:
                         counter +=1
+                        pos = b
                     if counter > 1:
                         place = False
                 if place:
-                    return set_new(b)
+                    return set_new(pos)
             
         #random position
         positions = []

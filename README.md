@@ -21,4 +21,5 @@ print(map.make_move(position = [0,1],skip_check=False,place_anyway=True)) # Fals
 print(map.get_map())#>> [['x', 'x, ''], ['', '', ''], ['', '', '']]
 print(map.is_payer_turn())# >> False
 print(map.make_move(position = [0,2],skip_check=True,place_anyway=False)) # player
+print(map.check_win()) # player
 ```

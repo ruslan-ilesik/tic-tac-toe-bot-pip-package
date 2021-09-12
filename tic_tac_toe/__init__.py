@@ -37,7 +37,11 @@ class Field():
             self.turn = 'bot'
         return self.check_win()
 
-    def check_win(self):
+    def check_win(self):        
+        for i in self.combinations:
+            if self.map[i[0][0]][i[0][1]] != self.clear_place_sign and self.map[i[0][0]][i[0][1]] == self.map[i[1][0]][i[1][1]] == self.map[i[2][0]][i[2][1]]:
+                return ('player' if self.map[i[0][0]][i[0][1]] == self.player_sign else 'bot')
+        
         is_all = True
         for i in self.combinations:
             for b in i:
@@ -45,10 +49,6 @@ class Field():
                     is_all = False
         if is_all:
             return 'draw'
-            
-        for i in self.combinations:
-            if self.map[i[0][0]][i[0][1]] != self.clear_place_sign and self.map[i[0][0]][i[0][1]] == self.map[i[1][0]][i[1][1]] == self.map[i[2][0]][i[2][1]]:
-                return ('player' if self.map[i[0][0]][i[0][1]] == self.player_sign else 'bot')
 
         return False
 

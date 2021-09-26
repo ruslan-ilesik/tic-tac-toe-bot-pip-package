@@ -1,6 +1,6 @@
 # tic-tac-toe-bot-pip-package
 tic tac toe bot with setting ability
-[PyPy:](https://pypi.org/project/tic-tac-toe-api-bot/)
+[Pypi:](https://pypi.org/project/tic-tac-toe-api-bot/)
 
 Usage Example
 ```python
